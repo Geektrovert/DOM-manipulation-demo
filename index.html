@@ -1,0 +1,57 @@
+<head>
+  <title>Hackademy - DOM Manipulation Practice</title>
+  <style>
+    .todo-item {
+      color: red;
+    }
+    .completed {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <h1>ToDo App</h1>
+  <div id="app">
+    <ul id="todo-list"></ul>
+    <form id="todo-form">
+      <input type="text" id="todo-input" placeholder="What needs to be done?">
+      <button type="submit">Add</button>
+    </form>
+  </div>
+  <script>
+    const dummyTodos = [
+      {
+        id: 1,
+        text: 'Buy groceries',
+        completed: false
+      },
+      {
+        id: 2,
+        text: 'Call mom',
+        completed: true
+      },
+      {
+        id: 3,
+        text: 'Call Dad',
+        completed: false
+      }
+    ];
+    const app = document.getElementById('todo-list');
+    dummyTodos.forEach(todo => {
+      const li = document.createElement('li');
+      li.innerText = todo.text;
+      li.setAttribute('data-id', todo.id);
+      li.classList.add('todo-item');
+      app.appendChild(li);
+      if (todo.completed) {
+        li.classList.add('completed');
+      } else {
+        li.classList.remove('completed');
+      }
+    });
+
+    // TODO 1: Add a function to toggle the completed state of a todo item
+    // TODO 2: Add a function to add todo items to the list
+
+  </script>
+</body>
